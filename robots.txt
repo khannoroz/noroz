@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /php/
+Disallow: /data/
+
+Sitemap: https://norozhussain.com/sitemap.xml

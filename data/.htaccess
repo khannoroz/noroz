@@ -1,0 +1,9 @@
+# Block all direct web access to this folder — it only holds the
+# server-side contact-form log (messages.json), which must never be
+# publicly readable.
+Require all denied
+
+<IfModule !mod_authz_core.c>
+  Order deny,allow
+  Deny from all
+</IfModule>

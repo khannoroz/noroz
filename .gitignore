@@ -1,0 +1,6 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Contact form submissions (runtime-generated on a PHP host — don't commit visitor data)
+data/messages.json

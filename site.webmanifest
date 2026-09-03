@@ -1,0 +1,11 @@
+{
+  "name": "Noroz Hussain — Portfolio",
+  "short_name": "Noroz",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0d0b16",
+  "theme_color": "#0d0b16",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
