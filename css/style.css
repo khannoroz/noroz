@@ -339,28 +339,34 @@ canvas#particles{ position:absolute; inset:0; width:100%; height:100%; opacity:.
 .project-link{ margin-top:1rem; display:inline-flex; align-items:center; gap:.35rem; font-size:.8rem; font-weight:600; color: var(--cyan); }
 .project-link svg{ width:13px; height:13px; }
 
-/* ---------- Gallery hero slider ---------- */
-.gallery-slider-section{ padding-top: 0; padding-bottom: 0; }
-.gallery-slider{ position: relative; width:100%; aspect-ratio: 21/9; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.02); }
-@media (max-width: 900px){ .gallery-slider{ aspect-ratio: 16/10; } }
-@media (max-width: 560px){ .gallery-slider{ aspect-ratio: 4/5; } }
-.gallery-slider-track{ position:relative; width:100%; height:100%; }
-.gallery-slide{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1s ease; cursor: zoom-in; }
-.gallery-slide.active{ opacity:1; position:relative; }
-.gallery-slide:not(.active){ pointer-events:none; }
-.gallery-slider .slider-arrow{ width:44px; height:44px; }
-.gallery-slider .slider-arrow svg{ width:18px; height:18px; }
-.gallery-slider .slider-arrow.prev{ left:16px; }
-.gallery-slider .slider-arrow.next{ right:16px; }
+/* ---------- Gallery hero — blurred ambient backdrop ---------- */
+.gallery-hero{ position: relative; overflow: hidden; padding-bottom: 110px; }
+.gallery-hero-bg{ position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.gallery-hero-bg .gallery-slide{
+  position: absolute; top: -12%; left: -12%; width: 124%; height: 124%;
+  object-fit: cover; filter: blur(48px) saturate(1.2) brightness(.55);
+  opacity: 0; transition: opacity 2.6s ease; will-change: opacity;
+}
+.gallery-hero-bg .gallery-slide.active{ opacity: 1; }
+:root[data-theme="light"] .gallery-hero-bg .gallery-slide{ filter: blur(48px) saturate(1.05) brightness(.92); }
+.gallery-hero-bg::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(180deg, rgba(13,11,22,.6) 0%, rgba(13,11,22,.25) 45%, var(--bg) 96%);
+}
+:root[data-theme="light"] .gallery-hero-bg::after{
+  background: linear-gradient(180deg, rgba(247,246,251,.72) 0%, rgba(247,246,251,.4) 45%, var(--bg) 96%);
+}
+.gallery-hero .bg-grid{ z-index: 1; }
+.gallery-hero .container{ position: relative; z-index: 2; }
 
-/* ---------- Gallery ---------- */
-.gallery-grid{ margin-top: 2.6rem; display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-@media (max-width: 980px){ .gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 620px){ .gallery-grid{ grid-template-columns: 1fr; } }
-.art-card{ position: relative; border-radius: var(--radius-lg); overflow:hidden; aspect-ratio: 1/1; border: 1px solid var(--border); transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; cursor: pointer; }
+/* ---------- Gallery — dynamic masonry layout ---------- */
+.gallery-grid{ margin-top: 2.6rem; column-count: 3; column-gap: 1.4rem; }
+@media (max-width: 980px){ .gallery-grid{ column-count: 2; } }
+@media (max-width: 620px){ .gallery-grid{ column-count: 1; } }
+.art-card{ position: relative; display: block; width:100%; break-inside: avoid; -webkit-column-break-inside: avoid; margin: 0 0 1.4rem; border-radius: var(--radius-lg); overflow:hidden; border: 1px solid var(--border); transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; cursor: pointer; }
 .art-card:hover{ border-color: rgba(79,216,208,.5); box-shadow: var(--shadow-glow); transform: translateY(-4px); }
-.art-card img{ width:100%; height:100%; object-fit:cover; transition: transform .6s ease; }
-.art-card:hover img{ transform: scale(1.08); }
+.art-card img{ width:100%; height:auto; display:block; transition: transform .6s ease; }
+.art-card:hover img{ transform: scale(1.06); }
 .art-overlay{ position:absolute; inset:0; background: linear-gradient(to top, rgba(10,8,18,.92), rgba(10,8,18,0) 55%); opacity:0; transition: opacity .3s ease; display:flex; align-items:flex-end; padding: 1.1rem; }
 .art-card:hover .art-overlay{ opacity:1; }
 .art-overlay .cat{ font-family: var(--font-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; color: var(--cyan); }
