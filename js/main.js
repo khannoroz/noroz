@@ -343,10 +343,10 @@
     }
   }
 
-  /* ---------------- Gallery hero slider (gallery.html) ---------------- */
+  /* ---------------- Gallery hero — blurred ambient backdrop (gallery.html) ---------------- */
   function initGallerySlider() {
-    var track = $("#gallery-slider-track");
-    if (!track || typeof SITE_CONTENT === "undefined") return;
+    var bg = $("#gallery-hero-bg");
+    if (!bg || typeof SITE_CONTENT === "undefined") return;
 
     var items = SITE_CONTENT.gallery;
     if (!items.length) return;
@@ -354,56 +354,23 @@
     items.forEach(function (a, i) {
       var img = document.createElement("img");
       img.src = a.image;
-      img.alt = a.title + " — " + a.category;
+      img.alt = "";
+      img.setAttribute("aria-hidden", "true");
       img.loading = i === 0 ? "eager" : "lazy";
       img.className = "gallery-slide" + (i === 0 ? " active" : "");
-      img.addEventListener("click", function () { openLightbox(a.image, a.title + " — " + a.category); });
-      track.appendChild(img);
+      bg.appendChild(img);
     });
 
-    var slides = $$(".gallery-slide", track);
-    if (!slides.length) return;
+    var slides = $$(".gallery-slide", bg);
+    if (slides.length < 2) return;
     var current = 0;
-    var timer = null;
 
-    function show(i) {
-      current = (i + slides.length) % slides.length;
-      slides.forEach(function (s, si) { s.classList.toggle("active", si === current); });
-    }
-    function next() { show(current + 1); }
-    function prev() { show(current - 1); }
-    function start() {
-      stop();
-      if (slides.length > 1) timer = setInterval(next, 3800);
-    }
-    function stop() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-
-    var wrap = $("#gallery-slider");
-    var prevBtn = $("#gallery-slider-prev");
-    var nextBtn = $("#gallery-slider-next");
-
-    if (prevBtn) prevBtn.addEventListener("click", function () { prev(); start(); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { next(); start(); });
-
-    if (wrap) {
-      wrap.addEventListener("mouseenter", stop);
-      wrap.addEventListener("mouseleave", start);
-
-      var startX = null;
-      wrap.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
-      wrap.addEventListener("touchend", function (e) {
-        if (startX !== null) {
-          var dx = e.changedTouches[0].clientX - startX;
-          if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
-          startX = null;
-        }
-        start();
-      }, { passive: true });
-    }
-
-    start();
+    setInterval(function () {
+      var next = (current + 1) % slides.length;
+      slides[current].classList.remove("active");
+      slides[next].classList.add("active");
+      current = next;
+    }, 4200);
   }
 
   /* ---------------- Case studies (projects.html) ---------------- */
