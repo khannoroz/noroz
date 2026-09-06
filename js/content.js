@@ -108,7 +108,28 @@ const SITE_CONTENT = {
     { title: "Anime Portrait", category: "Fan Art", image: "assets/img/art/anime-portrait.jpg" },
     { title: "Throne of Shadows", category: "Fan Art", image: "assets/img/art/throne-of-shadows.jpg" },
     { title: "Dragon", category: "Pixel Art", image: "assets/img/art/dragon-pixel-art.jpg" },
-    { title: "Pixel Avatar", category: "Pixel Art", image: "assets/img/art/pixel-avatar.jpg" }
+    { title: "Pixel Avatar", category: "Pixel Art", image: "assets/img/art/pixel-avatar.jpg" },
+    { title: "Winged Guardians", category: "Character Design", image: "assets/img/art/winged-guardians.jpg" },
+    { title: "Wolf in Purple", category: "Character Design", image: "assets/img/art/wolf-in-purple.jpg" },
+    { title: "Pixel Portrait I", category: "Pixel Art", image: "assets/img/art/pixel-portrait-one.jpg" },
+    { title: "Pixel Portrait II", category: "Pixel Art", image: "assets/img/art/pixel-portrait-two.jpg" },
+    { title: "Pride Flag Bearer", category: "Character Design", image: "assets/img/art/pride-flag-bearer.jpg" },
+    { title: "Husky Character Study", category: "Character Design", image: "assets/img/art/husky-character.jpg" },
+    { title: "Portrait Study I", category: "Line Art", image: "assets/img/art/portrait-study-pencil-1.jpg" },
+    { title: "Portrait Study II", category: "Line Art", image: "assets/img/art/portrait-study-pencil-2.jpg" },
+    { title: "Vespa Ride", category: "Illustration", image: "assets/img/art/vespa-ride.jpg" },
+    { title: "Eye Can Tell Everything", category: "Graphic Design", image: "assets/img/art/eye-can-tell-everything.jpg" },
+    { title: "Vector Self Portrait", category: "Character Design", image: "assets/img/art/vector-self-portrait.jpg" },
+    { title: "Keffiyeh Portrait", category: "Character Design", image: "assets/img/art/keffiyeh-portrait.jpg" },
+    { title: "Fractured Portrait", category: "Portrait Art", image: "assets/img/art/fractured-portrait.jpg" },
+    { title: "Violet Hood", category: "Portrait Art", image: "assets/img/art/violet-hood.jpg" },
+    { title: "Studio Portrait", category: "Portrait Art", image: "assets/img/art/studio-portrait.jpg" },
+    { title: "Vintage Shades", category: "Portrait Art", image: "assets/img/art/vintage-shades.jpg" },
+    { title: "White Cap", category: "Portrait Art", image: "assets/img/art/white-cap-portrait.jpg" },
+    { title: "Profile Sketch", category: "Line Art", image: "assets/img/art/profile-sketch.jpg" },
+    { title: "Midnight Blue", category: "Concept Art", image: "assets/img/art/midnight-blue.jpg" },
+    { title: "Graphite Portrait", category: "Line Art", image: "assets/img/art/graphite-portrait.jpg" },
+    { title: "Side Profile Study", category: "Line Art", image: "assets/img/art/side-profile-study.jpg" }
   ]
 };
 
