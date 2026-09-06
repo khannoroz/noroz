@@ -339,6 +339,20 @@ canvas#particles{ position:absolute; inset:0; width:100%; height:100%; opacity:.
 .project-link{ margin-top:1rem; display:inline-flex; align-items:center; gap:.35rem; font-size:.8rem; font-weight:600; color: var(--cyan); }
 .project-link svg{ width:13px; height:13px; }
 
+/* ---------- Gallery hero slider ---------- */
+.gallery-slider-section{ padding-top: 0; padding-bottom: 0; }
+.gallery-slider{ position: relative; width:100%; aspect-ratio: 21/9; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.02); }
+@media (max-width: 900px){ .gallery-slider{ aspect-ratio: 16/10; } }
+@media (max-width: 560px){ .gallery-slider{ aspect-ratio: 4/5; } }
+.gallery-slider-track{ position:relative; width:100%; height:100%; }
+.gallery-slide{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1s ease; cursor: zoom-in; }
+.gallery-slide.active{ opacity:1; position:relative; }
+.gallery-slide:not(.active){ pointer-events:none; }
+.gallery-slider .slider-arrow{ width:44px; height:44px; }
+.gallery-slider .slider-arrow svg{ width:18px; height:18px; }
+.gallery-slider .slider-arrow.prev{ left:16px; }
+.gallery-slider .slider-arrow.next{ right:16px; }
+
 /* ---------- Gallery ---------- */
 .gallery-grid{ margin-top: 2.6rem; display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 @media (max-width: 980px){ .gallery-grid{ grid-template-columns: repeat(2, 1fr); } }
